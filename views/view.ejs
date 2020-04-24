@@ -20,10 +20,25 @@
 
 <script>
 
+async function getData(){
+    const response = await fetch('https://owais-spinapp.herokuapp.com/checked')
+    .then((response) => {
+    return response.json()
+    })
+    .then((data) => {
+      document.getElementById('check').checked = data;
+    })
+    .catch(err => alert('Something went wrong!'));
+
+}
+
+window.onload = getData()
+
 function save(){
   var data = document.getElementById('check').checked;
   data = { data }
 
+  //Save Checkbar Status
   async function postData(url = '', data = {}) {
   const response = await fetch(url, {
     method: 'POST',
