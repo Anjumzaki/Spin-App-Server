@@ -34,9 +34,9 @@ router.get('/', function(req, res, next) {
 router.get('/checked', async (req, res, next) => {
     
     const checked = await SpinDb.findOne({id: 100});
-    res.send(checked);
-    // if(!checked) return res.send(false);
-    // else return res.send(checked.checked);
+
+    if(!checked) return res.send(false);
+    else return res.send(checked.checked);
 
 });
 
