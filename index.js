@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
     res.render('view.ejs')
 });
 
-router.get('/checked', function(req, res, next) {
+router.get('/checked', async (req, res, next) => {
     
     const checked = await SpinDb.findOne({id: 100});
     res.send(checked);
