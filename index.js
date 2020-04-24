@@ -5,8 +5,10 @@ const bodyParser = require('body-parser');
 const router = express.Router();
 const SpinDb = require('./model');
 
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/spinapp';
+
 //Connect to mongoDb
-mongoose.connect('mongodb://owais:owais123@ds263436.mlab.com:63436/practiceapp',
+mongoose.connect(MONGODB_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
