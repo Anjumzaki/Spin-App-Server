@@ -32,9 +32,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/checked', function(req, res, next) {
+    
     const checked = await SpinDb.findOne({id: 100});
-    if(!checked) return res.send(false);
-    else return res.send(checked.checked);
+    res.send(checked);
+    // if(!checked) return res.send(false);
+    // else return res.send(checked.checked);
 
 });
 
